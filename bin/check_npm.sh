@@ -8,3 +8,4 @@ then
   echo "npm is not installed.  Try https://github.com/creationix/nvm"
   exit 2
 fi
+export PATH
