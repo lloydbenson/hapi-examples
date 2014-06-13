@@ -11,7 +11,10 @@ var it = Lab.test;
 
 internals.prepareServer = function (callback) {
     var server = new Hapi.Server();
-    server.pack.require('../', function (err) {
+    server.pack.register({
+
+        plugin: require('../')
+    }, function (err) {
 
         expect(err).to.not.exist;
         callback(server);
