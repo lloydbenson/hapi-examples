@@ -1,6 +1,6 @@
 {
   "name": "hapi-examples",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "hapi examples",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Lloyd Benson",
   "license": "BSD",
   "dependencies": {
-    "hapi": "5.x.x",
+    "hapi": "6.x.x",
     "joi": "4.x.x",
     "hoek": "2.x.x"
   },
