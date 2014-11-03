@@ -23,9 +23,9 @@ internals.prepareServer = function (callback) {
     
 describe('hello world', function () {
 
-    it('GET /examples/hello', function (done) {
+    it('GET /examples/helloworld', function (done) {
         internals.prepareServer(function (server) {
-            server.inject({ method: 'GET', url: '/examples/hello'}, function (response) {
+            server.inject({ method: 'GET', url: '/examples/helloworld'}, function (response) {
 
                 expect(response.statusCode).to.equal(200);
                 expect(response.payload).to.exist;
