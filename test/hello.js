@@ -1,34 +1,43 @@
-var Lab = require('lab');
-var Hapi = require('hapi');
+'use strict';
 
-var internals = {};
+const Code = require('code');
+const Hapi = require('hapi');
+const Lab = require('lab');
 
-var expect = Lab.expect;
-var before = Lab.before;
-var after = Lab.after;
-var describe = Lab.experiment;
-var it = Lab.test;
+const internals = {};
+
+const lab = exports.lab = Lab.script();
+const expect = Code.expect;
+const describe = lab.describe;
+const it = lab.it;
 
 internals.prepareServer = function (callback) {
-    var server = new Hapi.Server();
-    server.pack.register({
 
-        plugin: require('../')
-    }, function (err) {
+    const server = new Hapi.Server();
+    server.connection();
 
-        expect(err).to.not.exist;
+    server.register({
+
+        register: require('..'),
+        options: internals.defaults
+    }, (err) => {
+
+        expect(err).to.not.exist();
         callback(server);
     });
 };
-    
-describe('hello world', function () {
 
-    it('GET /examples/helloworld', function (done) {
-        internals.prepareServer(function (server) {
-            server.inject({ method: 'GET', url: '/examples/helloworld'}, function (response) {
+
+describe('hello world', () => {
+
+    it('GET /examples/helloworld', (done) => {
+
+        internals.prepareServer((server) => {
+
+            server.inject({ method: 'GET', url: '/examples/helloworld' }, (response) => {
 
                 expect(response.statusCode).to.equal(200);
-                expect(response.payload).to.exist;
+                expect(response.payload).to.exist();
                 done();
             });
         });
