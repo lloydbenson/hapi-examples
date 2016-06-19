@@ -4,13 +4,16 @@
   "description": "hapi examples",
   "main": "lib/index.js",
   "scripts": {
-    "test": "lab -a code -t 100 -v -m 60000 -L -r json -o test.lab -r html -o test.html -r console -o stdout -r console -o test.log"
+    "start": "node server.js",
+    "test": "lab -a code -t 100 -v -L -r junit -o test.xml -r html -o test.html -r console -o stdout"
   },
   "author": "Lloyd Benson",
   "license": "BSD",
   "dependencies": {
     "hapi": "13.x.x",
-    "hoek": "4.x.x"
+    "hoek": "4.x.x",
+    "lout": "9.x.x",
+    "vision": "4.x.x"
   },
   "devDependencies": {
     "code": "3.x.x",
